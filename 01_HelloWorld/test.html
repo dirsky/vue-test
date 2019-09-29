@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test-vue</title>
+</head>
+<body>
+<!--
+  1. 引入Vue.js
+  2. 创建Vue对象
+    el : 指定根element(选择器)
+    data : 初始化数据(页面可以访问)
+  3. 双向数据绑定 : v-model
+  4. 显示数据 : {{xxx}}
+  5. 理解vue的mvvm实现
+-->
+<!--这是一种声明式编程方法-->
+<!--模板-->
+<div id="test">
+    <input type="text" v-model="msg">
+    <p>hello {{msg}}</p><!--大括号表达式-->
+    <p>age: {{age}}</p>
+</div>
+
+</body>
+<!--单纯只需要vue不需要任何node之类环境-->
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    // 配置对象 options
+    let option = {
+        // el属性：把当前Vue对象挂载到 div标签上，#app是id选择器
+        el: '#test',
+        data: {  // data: 是Vue对象中绑定的数据
+            msg: 'frank',
+            age: 18
+        }
+    }
+    const vm = new Vue(option);
+</script>
+</html>
