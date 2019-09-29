@@ -24,6 +24,7 @@
   姓名2(单向): <input type="text" placeholder="Full Name2" v-model="fullName2"><br>
   姓名3(双向): <input type="text" placeholder="Full Name3" v-model="fullName3"><br>
 
+  <!--会缓存，标识为fullName1-->
   <p>{{fullName1}}</p>
   <p>{{fullName1}}</p>
 </div>
@@ -38,7 +39,7 @@
        fullName2: 'A-B'
     },
 
-    // 计算属性配置: 值为对象
+    // 计算属性配置: 值为对象，data中的值与computed中的值互斥
     computed: {
       fullName1 () { // 属性的get()
         console.log('fullName1()', this)
