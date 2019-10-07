@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>t_computed_watch</title>
+</head>
+<body>
+<div id="t_computed_watch">
+    firstName: <input type="text" v-model="firstName"> <br/>
+    lastName: <input type="text" v-model="lastName"> <br/>
+    fullName: <input type="text" v-model="fullName"> <br/>
+    fullName: <input type="text" v-model="fullName"> <br/>
+</div>
+</body>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    new Vue({
+        el: '#t_computed_watch',
+        data: {
+            firstName: 'Guozhong',
+            lastName: 'Xu'
+        },
+        computed: {
+            fullName() {
+                console.log('computed - fullName')
+                return this.lastName + ' ' + this.firstName
+            }
+        },
+        watch: {
+            firstName: function () {
+                console.log('watch-firstName')
+            }
+        }
+    })
+</script>
+</html>
