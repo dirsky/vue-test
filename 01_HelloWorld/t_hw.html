@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>t_hw</title>
+    <title>快速一览</title>
 </head>
 <body>
 <div id="hw">
+    <p>需要先引入依赖../js/vue.js</p>
     <p>{{name}}</p>
     <p>{{age}}</p>
 </div>
@@ -13,11 +14,19 @@
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
     new Vue({
+       // 通过el来关联body内的图层
        el: '#hw',
        data: {
            name: 'frank',
            age: 18
        }
+       // 下面的方式更多使用
+       // data() {
+       //     return {
+       //         name: 'frank',
+       //         age: 18
+       //     }
+       // }
     });
 </script>
 </html>

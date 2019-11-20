@@ -9,7 +9,7 @@
     firstName: <input type="text" v-model="firstName"> <br/>
     lastName: <input type="text" v-model="lastName"> <br/>
     fullName: <input type="text" v-model="fullName"> <br/>
-    fullName: <input type="text" v-model="fullName"> <br/>
+    已缓存fullName: <input type="text" v-model="fullName"> <br/>
 </div>
 </body>
 <script type="text/javascript" src="../js/vue.js"></script>
@@ -20,15 +20,21 @@
             firstName: 'Guozhong',
             lastName: 'Xu'
         },
+        // 能用computed不用watch更简洁
         computed: {
+            // 计算属性默认只有 getter ，不过在需要时你也可以提供一个 setter ：
             fullName() {
                 console.log('computed - fullName')
+                // 相当于监听了lastName和firstName
                 return this.lastName + ' ' + this.firstName
             }
         },
+        // 当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的。
+        // 可以指定一个参数，例如val，默认这个值是修改后的值
         watch: {
-            firstName: function () {
+            firstName: function (val) {
                 console.log('watch-firstName')
+                console.log(val)
             }
         }
     })

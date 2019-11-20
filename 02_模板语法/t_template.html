@@ -9,16 +9,16 @@
     <p>{{title}}</p>
     <!--采用js的语法来动态生成html-p-->
     <p v-text="content"></p>
-    <!--对对象采用方法处理-->
+    <!--对 对象采用方法处理-->
     <p>{{content.substring(0,2)}}</p>
     <a :href="url">url</a>
     <button @click="fun">fun</button>
-    <button @click="funWithPara(title)">fun2</button>
+    <button @click="funWithPara(title)">funWithPara</button>
 </div>
 </body>
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
-    new Vue({
+    const vm = new Vue({
         el: '#tt',
         data: {
             title: '我是标题',
