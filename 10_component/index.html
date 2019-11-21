@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component</title>
+</head>
+<body>
+<div id="cc">
+    <p>component test below</p>
+    <p>每个组件的值是独立的</p>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+
+    <blog-post title="我是传递给prop的值"></blog-post>
+    <blog-post title="Blogging with Vue"></blog-post>
+    <blog-post title="Why Vue is so fun"></blog-post>
+</div>
+</body>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    // 定义一个名为 button-counter 的新组件(全局的)
+    Vue.component('button-counter', {
+        // 可替换为下列行es6写法
+        // data () {
+        data: function () {
+            return {
+                count: 0
+            }
+        },
+        // 注意此处v-on:click替换为:click会出错
+        template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+    })
+
+    Vue.component('blog-post', {
+        props: ['title'],
+        template: '<h3>{{ title }}</h3>'
+    })
+
+    new Vue({ el: '#cc' })
+</script>
+</html>

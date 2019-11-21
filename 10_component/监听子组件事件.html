@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>监听子组件事件</title>
+</head>
+<body>
+<div id="cc">
+    <p>component test below</p>
+    <div :style="{ fontSize: postFontSize + 'em' }">
+        <blog-post
+                v-for="post in posts"
+                v-bind:key="post.id"
+                v-bind:post="post"
+                v-on:enlarge-text="postFontSize += 0.1"
+                v-on:enlarge-text2="postFontSize += $event"
+        ></blog-post>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    // 下面几行可以用其他单独的文件进行撰写
+    Vue.component('blog-post', {
+        props: ['post'],
+        // 下面使用了反向`也就是键盘Tab上面的按键来实现换行撰写
+        // $emit('enlarge-text2', -0.1) 传值出去父组件
+        template: `
+            <div class="blog-post">
+              <h3>{{ post.title }}</h3>
+                <button v-on:click="$emit('enlarge-text')">
+                   Enlarge text
+                </button>
+                <button v-on:click="$emit('enlarge-text2', -0.1)">
+                   small text
+                </button>
+              <div v-html="post.content"></div>
+            </div>
+          `
+    })
+
+    new Vue({
+        el: '#cc',
+        data: {
+            posts: [
+                { id: 1, title: 'My journey with Vue', content: 'content-frank is good' },
+                { id: 2, title: 'Blogging with Vue', content: 'content-frank is good'  },
+                { id: 3, title: 'Why Vue is so fun', content: 'content-frank is good'  }
+            ],
+            postFontSize: 1
+        }})
+</script>
+</html>

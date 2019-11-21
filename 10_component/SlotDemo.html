@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slotDemo</title>
+</head>
+<body>
+<div id="cc">
+    <p>component test below</p>
+    <alert-box>Something bad happened.</alert-box>
+</div>
+</body>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    // 当使用 PascalCase (首字母大写命名) 定义一个组件时，你在引用这个自定义元素时两种命名法都可以使用。
+    // 也就是说 <my-component-name> 和 <MyComponentName> 都是可接受的。
+    // 注意，尽管如此，直接在 DOM (即非字符串的模板) 中使用时只有 kebab-case 是有效的。
+    Vue.component('AlertBox', {
+        template: `
+            <div class="demo-alert-box">
+              <strong>Error!</strong>
+              <slot></slot>
+            </div>
+          `
+    })
+
+    new Vue({
+        el: '#cc'
+    })
+</script>
+<style lang="scss" scoped>
+    .demo-alert-box {
+        color: white;
+        background-color: coral;
+        line-height: 30px;
+    }
+</style>
+
+</html>
