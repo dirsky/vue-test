@@ -38,9 +38,9 @@
     <input type="text" @keyup.enter="test7">
 
     <div>
-        <template v-for="t in tt">
-            <div :value="t.name" :key="t.name" @click="t8(t.name)">hi {{t.name}}</div>
-        </template>
+        <div v-for="t in tt" :key="t.name">
+            <div @click="t8(t.name)">hi {{t.name}}</div>
+        </div>
     </div>
 
 
