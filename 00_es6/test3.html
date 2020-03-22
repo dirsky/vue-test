@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>es6</title>
+</head>
+<body>
+<div id="test">
+    <p>hello {{msg}}</p>
+</div>
+
+</body>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    // 配置对象 option
+    let option = {
+        // el属性：把当前Vue对象挂载到 div标签上，#app是id选择器
+        el: '#test',
+        data: {  // data: 是Vue对象中绑定的数据
+            msg: 'test3',
+        },
+        created() {
+
+        },
+        mounted() {
+            let breakfast = {
+                getDrink() {
+                    return 'bread'
+                }
+            }
+
+            let frank = {
+                __proto__: breakfast,
+                getDrink() {
+                    return super.getDrink() + '面包'
+                }
+            }
+            console.log(frank.getDrink())
+        },
+        methods: {}
+    }
+    const vm = new Vue(option);
+</script>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>es6</title>
+</head>
+<body>
+<div id="test">
+    <p>hello {{msg}}</p>
+</div>
+
+</body>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+    // 配置对象 option
+    let option = {
+        // el属性：把当前Vue对象挂载到 div标签上，#app是id选择器
+        el: '#test',
+        data: {  // data: 是Vue对象中绑定的数据
+            msg: 'class2',
+        },
+        created() {
+            let fruits = ['apple', 'pear'],
+                food = ['cake', ...fruits]
+            console.log(fruits)
+            console.log(...fruits)
+            console.log(food)
+        },
+        mounted() {
+            //    箭头函数
+            let half = num => num / 2
+            console.log(half(100))
+            let info = (name, age) => `我的名字是${name}，我的年龄是${age}`
+            console.log(info('fff', 90))
+
+
+            //    对象属性名
+            let frank = {}
+            frank.name = 'frank';
+            frank.age = 10;
+            console.log(frank);
+
+            // 对比两个值是否相等
+            console.log('+0==-0:', +0==-0)
+            console.log('+0===-0:', +0===-0)
+            console.log('Object.is(+0,-0):',Object.is(+0, -0))
+            console.log('NaN===NaN:', NaN===NaN)
+            console.log('Object.is(NaN,NaN):',Object.is(NaN,NaN))
+
+
+            // 复制对象
+            let me = {}
+            Object.assign(
+                me,{nn: 'nnn'}
+            )
+            console.log(me)
+        },
+        methods: {}
+    }
+    const vm = new Vue(option);
+</script>
+</html>

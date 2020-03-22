@@ -148,3 +148,9 @@
 
 ## 3). 使用指令
     <div v-my-directive='xxx'>
+
+编辑器-Inspections-HTML-未知的HTML标签属性
+选中自定义HTML标签属性
+@tap,@tap.stop,@tap.prevent,@tap.once,@click,@click.stop,@click.prevent,@click.once,@change,@change.lazy,@change.number,@change.trim,v-model,v-for,v-text,v-html,v-if,v-else-if,v-else,v-pre,v-once,v-bind,v-on,scoped
+
+编辑器-CodeStyle-HTML-缩进标签

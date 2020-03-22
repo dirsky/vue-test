@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test4</title>
+</head>
+<body>
+<div id="test">
+    <p>hello {{msg}}</p>
+</div>
+
+</body>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript" src="./js/Chef.js"></script>
+<script type="text/javascript" src="./js/Person.js"></script>
+<script type="text/javascript" src="./js/Frank.js"></script>
+<script type="text/javascript">
+
+    // 配置对象 option
+    let option = {
+        // el属性：把当前Vue对象挂载到 div标签上，#app是id选择器
+        el: '#test',
+        data: {  // data: 是Vue对象中绑定的数据
+            msg: 'test4',
+        },
+        created() {
+            // 注意不同，会被拆分
+            let mm = new Set('frank')
+            // 不会拆分
+            mm.add('candy')
+            console.log(mm)
+
+            let kk = new Map()
+            let fruit = {},cook = function() {},dessert = ''
+            kk.set(fruit,'苹果')
+            kk.set(cook,'栗子')
+            kk.set(dessert,'桃子')
+            console.log(kk)
+        },
+        mounted() {
+            let frank = new Chef('棒棒糖')
+            frank.cook()
+
+            frank.menu = 'a'
+            frank.menu = 'b'
+            frank.menu = 'c'
+            console.log(frank.menu)
+
+            Chef.help('吃货驾到')
+
+
+            let f = new Frank('frank', '1989')
+            console.log(f.info())
+        },
+        methods: {}
+    }
+    const vm = new Vue(option);
+</script>
+</html>
