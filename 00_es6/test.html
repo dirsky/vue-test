@@ -1,89 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>es6</title>
+  <meta charset="UTF-8">
+  <title>es6</title>
 </head>
 <body>
 <div id="test">
-    <p>hello {{msg}}</p>
+  <p>hello {{msg}}</p>
 </div>
 
 </body>
 <script type="text/javascript" src="../js/vue.js"></script>
 <script type="text/javascript">
-    // 配置对象 option
-    let option = {
-        // el属性：把当前Vue对象挂载到 div标签上，#app是id选择器
-        el: '#test',
-        data: {  // data: 是Vue对象中绑定的数据
-            msg: 'frank',
-        },
-        beforeCreate() {
-            // 变量还未声明呢
-            console.log('beforeCreate() msg=' + this.msg)
-        },
-        created() {
-            // 变量已经声明完成
-            console.log('created() msg=' + this.msg)
-            let a = 'frank'
-            a = 'candy'
-            console.log(a)
+  // 配置对象 option
+  let option = {
+    // el属性：把当前Vue对象挂载到 div标签上，#app是id选择器
+    el: '#test',
+    data: {  // data: 是Vue对象中绑定的数据
+      msg: 'frank',
+    },
+    beforeCreate() {
+      // 变量还未声明呢
+      console.log('beforeCreate() msg=' + this.msg)
+    },
+    created() {
+      // 变量已经声明完成
+      console.log('created() msg=' + this.msg)
+      let a = 'frank'
+      a = 'candy'
+      console.log(a)
 
-            const b = 'frank'
-            // 无法赋值
-            // b='candy'
-            console.log(b)
-            // 反引号Tab上面那个
-            this.kitchen`我是 ${a} 你是 ${b}`
-            const msg = `我是 ${a} 你是 ${b}`
-            console.log(msg)
-            console.log(msg.startsWith('我'))
-            console.log(msg.endsWith('我'))
-            console.log(msg.includes('是'))
-        },
-        mounted() {
-            console.log('mounted() msg=' + this.msg)
-            // 传统做法
-            const tmp = this.breakfastArray()
-            let f = tmp[0], c = tmp[1], d = tmp[2];
-            console.log(f,c,d)
-            // 解构数组
-            let [f1,c1,d1] = this.breakfastArray()
-            console.log(f1,c1,d1)
+      const b = 'frank'
+      // 无法赋值
+      // b='candy'
+      console.log(b)
+      // 反引号Tab上面那个
+      this.kitchen`我是 ${a} 你是 ${b}`
+      const msg = `我是 ${a} 你是 ${b}`
+      console.log(msg)
+      console.log(msg.startsWith('我'))
+      console.log(msg.endsWith('我'))
+      console.log(msg.includes('是'))
+    },
+    mounted() {
+      console.log('mounted() msg=' + this.msg)
+      // 传统做法
+      const tmp = this.breakfastArray()
+      let f = tmp[0], c = tmp[1], d = tmp[2];
+      console.log(f, c, d)
+      // 解构数组
+      let [f1, c1, d1] = this.breakfastArray()
+      console.log(f1, c1, d1)
 
-            // 解构对象，下面的需要前后一致
-            let {a: a, b: b} = this.breakfastObject()
-            console.log(a,b)
-            // 解构参数
-            this.breakfast('aaa','bbb',{c:'ccc',d:'ddd'})
+      // 解构对象，下面的需要前后一致
+      let { a: a, b: b } = this.breakfastObject()
+      console.log(a, b)
+      // 解构参数
+      this.breakfast('aaa', 'bbb', { c: 'ccc', d: 'ddd' })
 
-            console.log(this.defaultParameter())
+      console.log(this.defaultParameter())
 
-        },
-        methods: {
-            // 解构参数
-            breakfast(a, b, {c,d}={}) {
-                console.log('breakfast')
-                console.log(a,b,c,d)
-            },
-            breakfastArray() {
-                return ['frank', 'candy', 'dog']
-            },
-            breakfastObject() {
-                return {a: 'aa', b:'bb', c:'cc'}
-            },
-            kitchen(strings, ...values) {
-                console.log('------kitchen------')
-                console.log(strings)
-                console.log(values)
-            },
-            defaultParameter(name='frank',age=18) {
-                return `name: ${name}, age:${age}`
-            }
+    },
+    methods: {
+      // 解构参数
+      breakfast(a, b, { c, d } = {}) {
+        console.log('breakfast')
+        console.log(a, b, c, d)
+      },
+      breakfastArray() {
+        return ['frank', 'candy', 'dog']
+      },
+      breakfastObject() {
+        return { a: 'aa', b: 'bb', c: 'cc' }
+      },
+      // 展开操作符rest,另外还有spread
+      kitchen(strings, ...values) {
+        console.log('------kitchen------')
+        console.log(strings)
+        console.log(values)
+        // 另外还有spread
+        console.log(...values)
+      },
+      // 默认参数
+      defaultParameter(name = 'frank', age = 18) {
+        // 模版字符串
+        return `name: ${name}, age:${age}`
+      }
 
-        }
     }
-    const vm = new Vue(option);
+  }
+  const vm = new Vue(option);
 </script>
 </html>

@@ -41,9 +41,11 @@
 
     computed: {
       filterPersons () {
-//        debugger
-        // 取出相关数据，ES6解构赋值
+       debugger
+        // 取出相关数据，ES6解构赋值,this下面确实有data下的所有直接对象
         const {searchName, persons, orderType} = this
+        // 比arr会增加一些方法
+        // let arr2 = persons
         let arr = [...persons]
         // 过滤数组
         if(searchName.trim()) {
