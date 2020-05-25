@@ -36,6 +36,7 @@
       console.log(b)
       // 反引号Tab上面那个
       this.kitchen`我是 ${a} 你是 ${b}`
+      // 注意下面的msg和this.msg的区别
       const msg = `我是 ${a} 你是 ${b}`
       console.log(msg)
       console.log(msg.startsWith('我'))
@@ -53,9 +54,11 @@
       console.log(f1, c1, d1)
 
       // 解构对象，下面的需要前后一致
-      let { a: a, b: b } = this.breakfastObject()
-      console.log(a, b)
-      // 解构参数
+      let { a: aa, b: bb } = this.breakfastObject()
+      console.log(aa, bb)
+      let { c: cc, b: dd } = { d: 'dd', b: 'bb', c: 'cc' }
+      console.log(cc,dd)
+      // 解构参数(实际还是结构对象，观察c和d)
       this.breakfast('aaa', 'bbb', { c: 'ccc', d: 'ddd' })
 
       console.log(this.defaultParameter())

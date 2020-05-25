@@ -6,6 +6,7 @@
 </head>
 <body>
 <div id="test">
+    <p>数组合并、箭头函数、对象属性、相等判断、对象复制</p>
     <p>hello {{msg}}</p>
 </div>
 
@@ -27,7 +28,8 @@
             console.log(food)
         },
         mounted() {
-            //    箭头函数
+            //    箭头函数（注意细目=后面的，入参是num ，符号=>后面的是方法体）
+            // 省去了再去methods下再写一个方法的过程
             let half = num => num / 2
             console.log(half(100))
             let info = (name, age) => `我的名字是${name}，我的年龄是${age}`
