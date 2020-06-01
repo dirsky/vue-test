@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>t0601</title>
+</head>
+<body>
+<div id="t0601">
+  <p>{{msg}}</p>
+  <p>{{age}}</p>
+  <p ref="aa">{{age}}</p>
+  <p>{{msg.toUpperCase()}}</p>
+  <p @click="hit">{{msg}}</p>
+  <a href="http://www.baidu.com">baidu</a>
+  <a :href="url">baidu</a>
+  <input v-model="msg" />
+</div>
+</body>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+  let option = {
+    el: "#t0601",
+    data: {
+      msg: "frank",
+      url: "http://www.baidu.com"
+    },
+    mounted() {
+      console.log(111)
+    },
+    methods: {
+      hit() {
+        alert('hit')
+      }
+    },
+    watch: {
+      msg() {
+        console.log("msg is change!")
+      }
+    },
+    computed: {
+      age() {
+        if (this.msg === "frank1") {
+          return 1;
+        } else {
+          return 0
+        }
+      }
+    }
+  }
+  const vm = new Vue(option)
+</script>
+</html>

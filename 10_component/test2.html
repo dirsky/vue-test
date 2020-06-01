@@ -9,8 +9,8 @@
     <p>component test below</p>
     <blog-post
         v-for="post in posts"
-        v-bind:key="post.id"
-        v-bind:title="post.title"
+        :key="post.id"
+        :title="post.title"
     ></blog-post>
 </div>
 </body>
@@ -18,8 +18,8 @@
 <script type="text/javascript">
     // 下面几行可以用其他单独的文件进行撰写
     Vue.component('blog-post', {
-        props: ['title'],
-        template: '<h3>{{ title }}</h3>'
+        props: ['title','age'],
+        template: '<h3>component-blog:{{ title }}</h3>'
     })
 
     new Vue({
