@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>map&set</title>
+</head>
+<body>
+<div id="ms">
+  <p>{{msg}}</p>
+</div>
+</body>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type="text/javascript">
+  let option = {
+    el: "#ms",
+    data: {
+      msg: "map&set"
+    },
+    mounted() {
+      let arr1 = [1,2,2,3,3,3]
+      let set1 = new Set(arr1)
+      set1.forEach((value,key) => {
+          console.log(value,key)
+        }
+      )
+
+      let [...arr2] = set1
+      console.log(arr2)
+    }
+  }
+  const vm = new Vue(option)
+</script>
+</html>
